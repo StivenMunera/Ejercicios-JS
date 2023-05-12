@@ -22,3 +22,20 @@ h1{
 body{
     background: linear-gradient( 9deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 27%, rgba(161, 6, 43, 0.7287289915966386) 49%, rgba(0, 212, 255, 1) 100%);
 }
+
+button {
+    background-color: red;
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100px;
+    height: 28px;
+    overflow: hidden;
+}
+
+.button:hover{
+    background-color: white;
+}
+
+p{
+    font-size: 24px;
+}

@@ -206,36 +206,56 @@ function factorial() {
 /*6 - Escribe un programa que permita ir introduciendo una serie indeterminada de números mientras
  su suma no supere 50. Cuando esto ocurra, se debe mostrar el total acumulado y el contador de cuantos
 números se han introducido*/
+function acumulado (){
+  let serie = prompt('Digita varios numeros separados por una coma');
+  let texto = document.getElementById("miBoton6");
+  let mensaje = " ";
+  let t9 = document.createElement("h3");
+  t9.innerHTML = serie;
+  t9.className = "caja2";
+  texto.appendChild(t9);
 
-let boton6 = document.getElementById("miBoton6");
-boton6.addEventListener("click", function() {
-  let numeros = prompt('Digita varios numeros separados por una coma');
-  numeros = numeros.split(/[,]+/);
+  
+  serie = serie.split(/[,]+/);
   let suma = 0;
   let contador = 0;
+
+  let p = document.createElement("p");
+  p.className = "caja2";
+  texto.appendChild(p);
  
   
-  
-  while(suma < 50 && contador < numeros.length){
-      suma += Number (numeros [contador] );
+  while(suma < 50 && contador < serie.length){
+      suma += Number (serie [contador] );
       contador++;
     }
     if (suma >= 50){
-      alert("La suma de los números es: " + suma + "\nSe han introducido " + contador + " números.");
+      mensaje = ("La suma de los números es: " + suma + "\nSe han introducido " + contador + " números.");
+      p.innerHTML = mensaje;
     }
     else{
-      alert("No has superado el total de 50")
+      mensaje = ("No has superado el total de 50");
     }
+    p.innerHTML = mensaje;
 
-});
+};
 
 
 7 /* Crea 3 arrays. El primero tendra 5 números y el segundo se llamará pares y el tercero impares, ambos estarán vacíos. Después multiplica cada uno de los números del primer array por un número aleatorio entre 1 y 10, si el resultado es par guarda ese número en el array de pares y si es impar en el array de impares. Muestra por consola:
     -la multiplicación que se produce junto con su resultado con el formato 2 x 3 = 6
     -el array de pares e impares*/
-
-    let boton7 = document.getElementById("miBoton7");
-    boton7.addEventListener("click", function() {
+    function aleatorio() {
+      let texto = document.getElementById("miBoton7");
+      let mensaje = " ";
+      let t10 = document.createElement("h3");
+      t10.innerHTML = mensaje;
+      t10.className = "caja2";
+      texto.appendChild(t10);
+    
+      let p = document.createElement("p");
+      p.className = "caja2";
+      texto.appendChild(p);
+    
       let numeros = [2, 4, 8, 6, 7];
       let pares = [];
       let impares = [];
@@ -252,30 +272,43 @@ boton6.addEventListener("click", function() {
         }
       }
     
-      alert("Pares: " + pares);
-      alert("Impares: " + impares);
-    });
+      let mensajePares = "Pares: " + pares.join(", ");
+      let mensajeImpares = "Impares: " + impares.join(", ");
+    
+      p.innerHTML = mensajePares + "<br>" + mensajeImpares;
+    }
+    
+    
 
     /*8 - Dado un array de letras, solicita un número de DNI y calcula que letra le corresponde. El número no puede ser negativo ni tener más de 8 dígitos. La posición de la letra es el resultado del módulo del número introducido entre 23
 
 const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];*/
     
+function letra() {
+  let numeroDni = prompt('Digita un número DNI'); // Solicita al usuario que ingrese un número de DNI y lo guarda en la variable numeroDni.
+  const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T']; // Define un array de letras correspondientes a los posibles valores de número de DNI.
+  let texto = document.getElementById("miBoton8"); // Obtiene el elemento HTML con el ID "miBoton8" y lo guarda en la variable texto.
+  let mensaje = " "; // Crea una variable mensaje inicializada con un espacio en blanco.
+  let t11 = document.createElement("h3"); // Crea un nuevo elemento HTML "h3" y lo guarda en la variable t11.
+  t11.innerHTML = numeroDni; // Asigna el valor de numeroDni como contenido del elemento t11.
+  t11.className = "caja2"; // Asigna la clase "caja2" al elemento t11.
+  texto.appendChild(t11); // Agrega el elemento t11 como hijo del elemento con ID "miBoton8".
 
-const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+  let p = document.createElement("p"); // Crea un nuevo elemento HTML "p" y lo guarda en la variable p.
+  p.className = "caja2"; // Asigna la clase "caja2" al elemento p.
+  texto.appendChild(p); // Agrega el elemento p como hijo del elemento con ID "miBoton8".
 
-let boton8 = document.getElementById("miBoton8");
-boton8.addEventListener("click", function() {
-  let numeroDni = prompt('Digita un numero DNI');
-
-  if (numeroDni.length > 8 || numeroDni < 0) {
-    alert("El número de DNI no es válido");
+  if (numeroDni.length > 8 || numeroDni < 0) { // Verifica si el número de DNI tiene más de 8 dígitos o es menor a 0.
+    mensaje = "El número de DNI no es válido"; // Actualiza el mensaje indicando que el número de DNI no es válido.
+    p.innerHTML = mensaje; // Asigna el mensaje como contenido del elemento p.
   } else {
-    let letra = letras[numeroDni % 23];
-    let resi = numeroDni % 23;
+    let letra = letras[numeroDni % 23]; // Calcula la letra correspondiente al número de DNI utilizando el resto de la división del número por 23 como índice en el array letras.
+    let resi = numeroDni % 23; // Calcula el resto de la división del número de DNI por 23 y lo guarda en la variable resi.
     alert ("El residuo es " + resi);
-    alert("La letra que corresponde al número " + numeroDni + " es " + letra);
+    mensaje = ("La letra que corresponde al número " + numeroDni + " es " + letra); // Crea el mensaje con la letra correspondiente al número de DNI.
   }
-});
+  p.innerHTML = mensaje; // Asigna el mensaje como contenido del elemento p.
+}
 
 
 /*9 - Solicitar al usuario una palabra y mostrar por consola el número de consonantes, vocales y longitud de la palabra.*/
@@ -286,20 +319,30 @@ boton8.addEventListener("click", function() {
 
 
 /*10 - Dado un array que contiene ["azul", "amarillo", "rojo", "verde", "rosa"] determinar si un color introducido por el usuario a través de un prompt se encuentra dentro del array o no.*/
+function colores(){
+  let color = prompt('Digita un color');
+  const colors = ["azul", "amarillo", "rojo", "verde", "rosa"];
+  let texto = document.getElementById("miBoton10");
+  let mensaje = " ";
+  let t13 = document.createElement("h3");
+  t13.innerHTML = color;
+  t13.className = "caja2";
+  texto.appendChild(t13);
 
-const colors = ["azul", "amarillo", "rojo", "verde", "rosa"];
+  let p = document.createElement("p");
+  p.className = "caja2";
+  texto.appendChild(p);
 
-let boton10 = document.getElementById("miBoton10");
-boton10.addEventListener("click", function() {
-let color = prompt('Digita un color');
-
-if (colors.includes(color)){
-  alert(color + " !!SI!! Se encuentra almacenado en la variable")
-}
-else{
-  alert(color + " !!NO!! Se encuentra almacenado en la variable")
-}
-});
+    if (colors.includes(color)){
+      mensaje = (color + " !!SI!! Se encuentra almacenado en la variable");
+      p.innerHTML = mensaje;
+    }
+    
+    else{
+      mensaje = (color + " !!NO!! Se encuentra almacenado en la variable");
+      p.innerHTML = mensaje;
+    }
+    };
 
 
 
